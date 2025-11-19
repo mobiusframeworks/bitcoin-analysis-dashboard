@@ -33,11 +33,11 @@ jobs:
         pip install --upgrade pip
         pip install pandas numpy yfinance requests matplotlib seaborn scikit-learn
 
-    - name: Fetch latest Bitcoin data
+    - name: Fetch latest Bitcoin data (hourly)
       run: |
         cd ml_pipeline
-        python3 fetch_live_bitcoin_data.py
-        echo "Bitcoin data updated at $(date)"
+        python3 fetch_live_bitcoin_hourly.py
+        echo "Bitcoin hourly data updated at $(date)"
 
     - name: Generate M2 analysis
       run: |
