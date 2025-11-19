@@ -467,7 +467,7 @@ def generate_html(df, metrics, m2_results, trading_strategy_results):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>₿ Bitcoin Analysis - Live Dashboard</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>₿</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23F7931A'/%3E%3Ctext x='50' y='72' font-size='65' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'%3E₿%3C/text%3E%3C/svg%3E">
     <meta name="description" content="Real-time Bitcoin analysis with ML predictions, trading strategies, and market insights">
     <meta http-equiv="refresh" content="300">
     <style>
