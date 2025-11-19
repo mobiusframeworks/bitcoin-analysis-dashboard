@@ -92,33 +92,106 @@ def load_bitcoin_data():
         'volume_24h': df['volume'].tail(24).sum()
     }
 
-def generate_current_overview_chart(df, metrics):
-    """Generate current price chart with key levels"""
+def generate_weekly_chart(df, metrics):
+    """Generate weekly chart with 50-week and 200-week SMAs"""
     fig, ax = plt.subplots(figsize=(16, 8))
 
-    # Plot last 90 days
-    recent = df.tail(90).copy()
-    recent = recent.reset_index(drop=True)
+    # Resample to weekly data
+    weekly = df.set_index('timestamp').resample('W').agg({
+        'open': 'first',
+        'high': 'max',
+        'low': 'min',
+        'close': 'last',
+        'volume': 'sum'
+    }).dropna()
 
-    ax.plot(recent.index, recent['close'], color='#3498db', linewidth=2, label='Bitcoin Price')
-    ax.plot(recent.index, recent['MA_20'], color='#e74c3c', linewidth=1.5, linestyle='--', label='MA 20', alpha=0.7)
-    ax.plot(recent.index, recent['MA_50'], color='#f39c12', linewidth=1.5, linestyle='--', label='MA 50', alpha=0.7)
-    ax.plot(recent.index, recent['MA_200'], color='#27ae60', linewidth=1.5, linestyle='--', label='MA 200', alpha=0.7)
+    # Calculate weekly MAs
+    weekly['MA_50'] = weekly['close'].rolling(window=50).mean()
+    weekly['MA_200'] = weekly['close'].rolling(window=200).mean()
 
-    # Bollinger Bands
-    ax.fill_between(recent.index, recent['BB_upper'], recent['BB_lower'], alpha=0.1, color='gray', label='Bollinger Bands')
+    # Plot last 2 years of weekly data
+    recent = weekly.tail(104).copy()  # 104 weeks = 2 years
+    recent = recent.reset_index()
+
+    ax.plot(range(len(recent)), recent['close'], color='#3498db', linewidth=2.5, label='Bitcoin Price (Weekly)')
+    ax.plot(range(len(recent)), recent['MA_50'], color='#f39c12', linewidth=2, linestyle='--', label='50-Week SMA', alpha=0.8)
+    ax.plot(range(len(recent)), recent['MA_200'], color='#27ae60', linewidth=2, linestyle='--', label='200-Week SMA', alpha=0.8)
 
     # Current price line
     ax.axhline(y=metrics['current_price'], color='black', linestyle=':', linewidth=2, label=f"Current: ${metrics['current_price']:,.0f}")
 
-    ax.set_title(f"Bitcoin Price - Last 90 Days (Updated: {metrics['current_date'].strftime('%Y-%m-%d')})",
-                 fontsize=14, fontweight='bold')
+    ax.set_title(f"Bitcoin Weekly Chart - Last 2 Years | 50-Week & 200-Week SMAs", fontsize=14, fontweight='bold')
+    ax.set_xlabel('Weeks Ago', fontsize=12)
+    ax.set_ylabel('Price (USD)', fontsize=12)
+    ax.legend(loc='best', fontsize=10)
+    ax.grid(alpha=0.3)
+    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f'${x:,.0f}'))
+
+    return fig_to_base64(fig)
+
+def generate_daily_chart(df, metrics):
+    """Generate daily chart with daily MAs"""
+    fig, ax = plt.subplots(figsize=(16, 8))
+
+    # Resample to daily data
+    daily = df.set_index('timestamp').resample('D').agg({
+        'open': 'first',
+        'high': 'max',
+        'low': 'min',
+        'close': 'last',
+        'volume': 'sum'
+    }).dropna()
+
+    # Calculate daily MAs
+    daily['MA_20'] = daily['close'].rolling(window=20).mean()
+    daily['MA_50'] = daily['close'].rolling(window=50).mean()
+    daily['MA_200'] = daily['close'].rolling(window=200).mean()
+
+    # Plot last 90 days
+    recent = daily.tail(90).copy()
+    recent = recent.reset_index()
+
+    ax.plot(range(len(recent)), recent['close'], color='#3498db', linewidth=2, label='Bitcoin Price (Daily)')
+    ax.plot(range(len(recent)), recent['MA_20'], color='#e74c3c', linewidth=1.5, linestyle='--', label='20-Day MA', alpha=0.7)
+    ax.plot(range(len(recent)), recent['MA_50'], color='#f39c12', linewidth=1.5, linestyle='--', label='50-Day MA', alpha=0.7)
+    ax.plot(range(len(recent)), recent['MA_200'], color='#27ae60', linewidth=1.5, linestyle='--', label='200-Day MA', alpha=0.7)
+
+    # Current price line
+    ax.axhline(y=metrics['current_price'], color='black', linestyle=':', linewidth=2, label=f"Current: ${metrics['current_price']:,.0f}")
+
+    ax.set_title(f"Bitcoin Daily Chart - Last 90 Days", fontsize=14, fontweight='bold')
     ax.set_xlabel('Days Ago', fontsize=12)
     ax.set_ylabel('Price (USD)', fontsize=12)
-    ax.legend(loc='best')
+    ax.legend(loc='best', fontsize=10)
     ax.grid(alpha=0.3)
+    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f'${x:,.0f}'))
 
-    # Format y-axis as currency
+    return fig_to_base64(fig)
+
+def generate_fourhour_chart(df, metrics):
+    """Generate 4-hour chart for recent price action"""
+    fig, ax = plt.subplots(figsize=(16, 8))
+
+    # Use last 7 days of hourly data (168 hours)
+    recent = df.tail(168).copy()
+    recent = recent.reset_index(drop=True)
+
+    # Calculate short-term MAs on hourly data
+    recent['MA_24'] = recent['close'].rolling(window=24).mean()  # 24 hours (1 day)
+    recent['MA_72'] = recent['close'].rolling(window=72).mean()  # 72 hours (3 days)
+
+    ax.plot(recent.index, recent['close'], color='#3498db', linewidth=2, label='Bitcoin Price (Hourly)')
+    ax.plot(recent.index, recent['MA_24'], color='#e74c3c', linewidth=1.5, linestyle='--', label='24-Hour MA', alpha=0.7)
+    ax.plot(recent.index, recent['MA_72'], color='#f39c12', linewidth=1.5, linestyle='--', label='72-Hour MA', alpha=0.7)
+
+    # Current price line
+    ax.axhline(y=metrics['current_price'], color='black', linestyle=':', linewidth=2, label=f"Current: ${metrics['current_price']:,.0f}")
+
+    ax.set_title(f"Bitcoin Hourly Chart - Last 7 Days | Short-Term Action", fontsize=14, fontweight='bold')
+    ax.set_xlabel('Hours Ago', fontsize=12)
+    ax.set_ylabel('Price (USD)', fontsize=12)
+    ax.legend(loc='best', fontsize=10)
+    ax.grid(alpha=0.3)
     ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f'${x:,.0f}'))
 
     return fig_to_base64(fig)
@@ -427,8 +500,14 @@ def generate_html(df, metrics, m2_results, trading_strategy_results):
     """Generate comprehensive HTML website with tabs"""
 
     # Generate charts
-    print("📊 Generating overview chart...")
-    overview_chart = generate_current_overview_chart(df, metrics)
+    print("📊 Generating weekly chart...")
+    weekly_chart = generate_weekly_chart(df, metrics)
+
+    print("📊 Generating daily chart...")
+    daily_chart = generate_daily_chart(df, metrics)
+
+    print("📊 Generating hourly chart...")
+    hourly_chart = generate_fourhour_chart(df, metrics)
 
     print("📊 Generating key levels chart...")
     levels_chart = generate_key_levels_chart(metrics)
@@ -814,8 +893,25 @@ def generate_html(df, metrics, m2_results, trading_strategy_results):
                 </ul>
             </div>
 
+            <h3 class="subsection-title">📈 Weekly Chart - Long-Term Perspective</h3>
+            <p>Shows the last 2 years with 50-week and 200-week SMAs - the key levels used by institutional traders.</p>
+
             <div class="chart-container">
-                <img src="data:image/png;base64,{overview_chart}" alt="Bitcoin Price Chart">
+                <img src="data:image/png;base64,{weekly_chart}" alt="Bitcoin Weekly Chart">
+            </div>
+
+            <h3 class="subsection-title">📊 Daily Chart - Medium-Term View</h3>
+            <p>Last 90 days showing daily moving averages (20, 50, 200) - for swing trading and trend analysis.</p>
+
+            <div class="chart-container">
+                <img src="data:image/png;base64,{daily_chart}" alt="Bitcoin Daily Chart">
+            </div>
+
+            <h3 class="subsection-title">⚡ Hourly Chart - Short-Term Action</h3>
+            <p>Last 7 days of hourly data with 24-hour and 72-hour MAs - for day trading and entry/exit timing.</p>
+
+            <div class="chart-container">
+                <img src="data:image/png;base64,{hourly_chart}" alt="Bitcoin Hourly Chart">
             </div>
 
             <h3 class="subsection-title">Technical Context</h3>
