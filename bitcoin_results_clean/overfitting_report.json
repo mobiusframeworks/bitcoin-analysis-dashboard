@@ -1,0 +1,37 @@
+{
+  "data_leakage": {
+    "has_leakage": false,
+    "issues": [],
+    "warnings": []
+  },
+  "lookahead_bias": {
+    "has_lookahead": false,
+    "issues": [],
+    "warnings": [
+      "No time column available - cannot check for look-ahead bias"
+    ]
+  },
+  "overfitting": {
+    "is_overfitting": true,
+    "severity": "severe",
+    "train_val_gap": 0.0025869325145394684,
+    "train_test_gap": 0.0025869325145394684,
+    "val_test_gap": 0.0,
+    "issues": [
+      "Suspiciously high scores (Train: 0.9975, Val: 0.9949) - likely data leakage or trivial prediction task"
+    ]
+  },
+  "feature_quality": {
+    "duplicate_features": [],
+    "constant_features": [],
+    "highly_correlated_pairs": [],
+    "warnings": []
+  },
+  "overall_status": "FAIL - Severe Overfitting",
+  "recommendations": [
+    "Increase regularization",
+    "Reduce model complexity",
+    "Add more training data",
+    "Use feature selection to remove redundant features"
+  ]
+}

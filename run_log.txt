@@ -1,0 +1,25 @@
+================================================================================
+BITCOIN PRICE PREDICTION USING ML PIPELINE
+================================================================================
+
+Using data file: datasets/Bitcoin/bitcoin data csvs/btc-ohlc.csv
+
+================================================================================
+ML MODEL SELECTION PIPELINE
+================================================================================
+Task: REGRESSION
+Time Series: True
+
+Loading data from datasets/Bitcoin/bitcoin data csvs/btc-ohlc.csv...
+  Original shape: (3974, 7)
+  Warning: Time column 'Date' not found. Treating as non-time-series.
+Traceback (most recent call last):
+  File "/Users/alexhorton/quant connect dev environment/ml_pipeline/run_bitcoin_prediction.py", line 53, in <module>
+    results, best_model, X_test, y_test, X_train_val, y_train_val = run_model_selection(
+                                                                    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexhorton/quant connect dev environment/ml_pipeline/model_selection_pipeline.py", line 510, in run_model_selection
+    X, y, time_index, is_timeseries = load_and_prepare_data(
+                                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexhorton/quant connect dev environment/ml_pipeline/model_selection_pipeline.py", line 77, in load_and_prepare_data
+    raise ValueError(f"Target column '{target_col}' not found in data.")
+ValueError: Target column 'Close' not found in data.

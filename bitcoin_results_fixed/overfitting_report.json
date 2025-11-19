@@ -1,0 +1,397 @@
+{
+  "data_leakage": {
+    "has_leakage": true,
+    "issues": [
+      "Near-perfect correlation between 'prev_open' and 'prev_high': 0.9994",
+      "Near-perfect correlation between 'prev_open' and 'prev_low': 0.9990",
+      "Near-perfect correlation between 'prev_open' and 'prev_close': 0.9988",
+      "Near-perfect correlation between 'prev_open' and 'close_lag_2': 1.0000",
+      "Near-perfect correlation between 'prev_open' and 'close_lag_3': 0.9988",
+      "Near-perfect correlation between 'prev_open' and 'close_lag_5': 0.9964",
+      "Near-perfect correlation between 'prev_open' and 'sma_5': 0.9993",
+      "Near-perfect correlation between 'prev_open' and 'sma_10': 0.9974",
+      "Near-perfect correlation between 'prev_open' and 'sma_20': 0.9932",
+      "Near-perfect correlation between 'prev_high' and 'prev_low': 0.9988",
+      "Near-perfect correlation between 'prev_high' and 'prev_close': 0.9994",
+      "Near-perfect correlation between 'prev_high' and 'close_lag_2': 0.9995",
+      "Near-perfect correlation between 'prev_high' and 'close_lag_3': 0.9983",
+      "Near-perfect correlation between 'prev_high' and 'close_lag_5': 0.9960",
+      "Near-perfect correlation between 'prev_high' and 'sma_5': 0.9991",
+      "Near-perfect correlation between 'prev_high' and 'sma_10': 0.9972",
+      "Near-perfect correlation between 'prev_high' and 'sma_20': 0.9929",
+      "Near-perfect correlation between 'prev_low' and 'prev_close': 0.9993",
+      "Near-perfect correlation between 'prev_low' and 'close_lag_2': 0.9990",
+      "Near-perfect correlation between 'prev_low' and 'close_lag_3': 0.9976",
+      "Near-perfect correlation between 'prev_low' and 'close_lag_5': 0.9950",
+      "Near-perfect correlation between 'prev_low' and 'sma_5': 0.9984",
+      "Near-perfect correlation between 'prev_low' and 'sma_10': 0.9962",
+      "Near-perfect correlation between 'prev_low' and 'sma_20': 0.9919",
+      "Near-perfect correlation between 'prev_close' and 'close_lag_2': 0.9988",
+      "Near-perfect correlation between 'prev_close' and 'close_lag_3': 0.9976",
+      "Near-perfect correlation between 'prev_close' and 'close_lag_5': 0.9952",
+      "Near-perfect correlation between 'prev_close' and 'sma_5': 0.9986",
+      "Near-perfect correlation between 'prev_close' and 'sma_10': 0.9964",
+      "Near-perfect correlation between 'prev_close' and 'sma_20': 0.9920",
+      "Near-perfect correlation between 'close_lag_2' and 'close_lag_3': 0.9988",
+      "Near-perfect correlation between 'close_lag_2' and 'close_lag_5': 0.9964",
+      "Near-perfect correlation between 'close_lag_2' and 'sma_5': 0.9993",
+      "Near-perfect correlation between 'close_lag_2' and 'sma_10': 0.9974",
+      "Near-perfect correlation between 'close_lag_2' and 'sma_20': 0.9932",
+      "Near-perfect correlation between 'close_lag_3' and 'close_lag_5': 0.9976",
+      "Near-perfect correlation between 'close_lag_3' and 'close_lag_10': 0.9912",
+      "Near-perfect correlation between 'close_lag_3' and 'sma_5': 0.9995",
+      "Near-perfect correlation between 'close_lag_3' and 'sma_10': 0.9982",
+      "Near-perfect correlation between 'close_lag_3' and 'sma_20': 0.9942",
+      "Near-perfect correlation between 'close_lag_5' and 'close_lag_10': 0.9939",
+      "Near-perfect correlation between 'close_lag_5' and 'sma_5': 0.9986",
+      "Near-perfect correlation between 'close_lag_5' and 'sma_10': 0.9990",
+      "Near-perfect correlation between 'close_lag_5' and 'sma_20': 0.9960",
+      "Near-perfect correlation between 'close_lag_10' and 'sma_5': 0.9922",
+      "Near-perfect correlation between 'close_lag_10' and 'sma_10': 0.9964",
+      "Near-perfect correlation between 'close_lag_10' and 'sma_20': 0.9980",
+      "Near-perfect correlation between 'sma_5' and 'sma_10': 0.9989",
+      "Near-perfect correlation between 'sma_5' and 'sma_20': 0.9951",
+      "Near-perfect correlation between 'sma_10' and 'sma_20': 0.9978"
+    ],
+    "warnings": [
+      "High correlation between 'prev_open' and 'close_lag_10': 0.9899",
+      "High correlation between 'prev_high' and 'close_lag_10': 0.9897",
+      "High correlation between 'prev_low' and 'close_lag_10': 0.9883",
+      "High correlation between 'prev_close' and 'close_lag_10': 0.9887",
+      "High correlation between 'close_lag_2' and 'close_lag_10': 0.9899",
+      "High correlation between 'volume_lag_2' and 'volume_sma_5': 0.9516",
+      "High correlation between 'volume_lag_3' and 'volume_sma_5': 0.9563",
+      "High correlation between 'volume_sma_5' and 'volume_sma_10': 0.9789",
+      "High correlation between 'volume_sma_10' and 'volume_sma_20': 0.9713"
+    ]
+  },
+  "lookahead_bias": {
+    "has_lookahead": false,
+    "issues": [],
+    "warnings": [
+      "No time column available - cannot check for look-ahead bias"
+    ]
+  },
+  "overfitting": {
+    "is_overfitting": true,
+    "severity": "severe",
+    "train_val_gap": 0.002526253098413435,
+    "train_test_gap": 0.002526253098413435,
+    "val_test_gap": 0.0,
+    "issues": [
+      "Suspiciously high scores (Train: 0.9975, Val: 0.9950) - likely data leakage or trivial prediction task"
+    ]
+  },
+  "feature_quality": {
+    "duplicate_features": [],
+    "constant_features": [],
+    "highly_correlated_pairs": [
+      [
+        "prev_open",
+        "prev_high",
+        0.9994499745917022
+      ],
+      [
+        "prev_open",
+        "prev_low",
+        0.9989569984213306
+      ],
+      [
+        "prev_open",
+        "prev_close",
+        0.9987538858726711
+      ],
+      [
+        "prev_open",
+        "close_lag_2",
+        0.9999999516512758
+      ],
+      [
+        "prev_open",
+        "close_lag_3",
+        0.998753198038614
+      ],
+      [
+        "prev_open",
+        "close_lag_5",
+        0.9964114029938727
+      ],
+      [
+        "prev_open",
+        "close_lag_10",
+        0.9898699748855324
+      ],
+      [
+        "prev_open",
+        "sma_5",
+        0.9992696141372862
+      ],
+      [
+        "prev_open",
+        "sma_10",
+        0.9974385940450761
+      ],
+      [
+        "prev_open",
+        "sma_20",
+        0.993159627057724
+      ],
+      [
+        "prev_high",
+        "prev_low",
+        0.9987912303628862
+      ],
+      [
+        "prev_high",
+        "prev_close",
+        0.9994307187644905
+      ],
+      [
+        "prev_high",
+        "close_lag_2",
+        0.9994500606542982
+      ],
+      [
+        "prev_high",
+        "close_lag_3",
+        0.998338580376171
+      ],
+      [
+        "prev_high",
+        "close_lag_5",
+        0.9960421130370839
+      ],
+      [
+        "prev_high",
+        "close_lag_10",
+        0.9896908937612612
+      ],
+      [
+        "prev_high",
+        "sma_5",
+        0.9990616820221792
+      ],
+      [
+        "prev_high",
+        "sma_10",
+        0.9971858778349314
+      ],
+      [
+        "prev_high",
+        "sma_20",
+        0.9928606409474896
+      ],
+      [
+        "prev_low",
+        "prev_close",
+        0.9992897724833896
+      ],
+      [
+        "prev_low",
+        "close_lag_2",
+        0.9989572258806008
+      ],
+      [
+        "prev_low",
+        "close_lag_3",
+        0.9975605348910116
+      ],
+      [
+        "prev_low",
+        "close_lag_5",
+        0.9950277058454727
+      ],
+      [
+        "prev_low",
+        "close_lag_10",
+        0.9883158288352921
+      ],
+      [
+        "prev_low",
+        "sma_5",
+        0.9983857026391167
+      ],
+      [
+        "prev_low",
+        "sma_10",
+        0.9962354681777857
+      ],
+      [
+        "prev_low",
+        "sma_20",
+        0.9918564410901126
+      ],
+      [
+        "prev_close",
+        "close_lag_2",
+        0.9987541665974292
+      ],
+      [
+        "prev_close",
+        "close_lag_3",
+        0.9975893446264592
+      ],
+      [
+        "prev_close",
+        "close_lag_5",
+        0.9951762431197427
+      ],
+      [
+        "prev_close",
+        "close_lag_10",
+        0.9886666391998821
+      ],
+      [
+        "prev_close",
+        "sma_5",
+        0.9985539418434537
+      ],
+      [
+        "prev_close",
+        "sma_10",
+        0.9964283076507318
+      ],
+      [
+        "prev_close",
+        "sma_20",
+        0.9919828465821421
+      ],
+      [
+        "close_lag_2",
+        "close_lag_3",
+        0.9987542515404599
+      ],
+      [
+        "close_lag_2",
+        "close_lag_5",
+        0.996412829699307
+      ],
+      [
+        "close_lag_2",
+        "close_lag_10",
+        0.9898714744827729
+      ],
+      [
+        "close_lag_2",
+        "sma_5",
+        0.9992703674122873
+      ],
+      [
+        "close_lag_2",
+        "sma_10",
+        0.9974397172798346
+      ],
+      [
+        "close_lag_2",
+        "sma_20",
+        0.9931610322462104
+      ],
+      [
+        "close_lag_3",
+        "close_lag_5",
+        0.9975897597664689
+      ],
+      [
+        "close_lag_3",
+        "close_lag_10",
+        0.991150023753018
+      ],
+      [
+        "close_lag_3",
+        "sma_5",
+        0.9995060317852297
+      ],
+      [
+        "close_lag_3",
+        "sma_10",
+        0.998213669289736
+      ],
+      [
+        "close_lag_3",
+        "sma_20",
+        0.9942167239937021
+      ],
+      [
+        "close_lag_5",
+        "close_lag_10",
+        0.9938743949004838
+      ],
+      [
+        "close_lag_5",
+        "sma_5",
+        0.9985543169971094
+      ],
+      [
+        "close_lag_5",
+        "sma_10",
+        0.999006164562772
+      ],
+      [
+        "close_lag_5",
+        "sma_20",
+        0.9959559253523955
+      ],
+      [
+        "close_lag_10",
+        "sma_5",
+        0.992181894451659
+      ],
+      [
+        "close_lag_10",
+        "sma_10",
+        0.996431195008012
+      ],
+      [
+        "close_lag_10",
+        "sma_20",
+        0.9979916384361466
+      ],
+      [
+        "volume_lag_2",
+        "volume_sma_5",
+        0.951593355771149
+      ],
+      [
+        "volume_lag_3",
+        "volume_sma_5",
+        0.9563271982374553
+      ],
+      [
+        "sma_5",
+        "sma_10",
+        0.9989338603475818
+      ],
+      [
+        "sma_5",
+        "sma_20",
+        0.9950573106989509
+      ],
+      [
+        "sma_10",
+        "sma_20",
+        0.9977982404872545
+      ],
+      [
+        "volume_sma_5",
+        "volume_sma_10",
+        0.9789374843915232
+      ],
+      [
+        "volume_sma_10",
+        "volume_sma_20",
+        0.971265858882498
+      ]
+    ],
+    "warnings": []
+  },
+  "overall_status": "FAIL - Data Leakage Detected",
+  "recommendations": [
+    "Remove features that contain target information",
+    "Ensure features are from past time periods only",
+    "Increase regularization",
+    "Reduce model complexity",
+    "Add more training data",
+    "Use feature selection to remove redundant features",
+    "Remove or combine highly correlated features"
+  ]
+}

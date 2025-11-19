@@ -1,0 +1,368 @@
+{
+  "ohlc_leakage": {
+    "issues": [],
+    "warnings": []
+  },
+  "lookahead_bias": {
+    "issues": []
+  },
+  "target_leakage": {
+    "issues": []
+  },
+  "perfect_correlations": {
+    "issues": [
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_close",
+        "feature2": "prev_open",
+        "correlation": 0.9993457180279182,
+        "issue": "prev_close and prev_open have correlation 0.9993 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_close",
+        "feature2": "prev_high",
+        "correlation": 0.9997012414715881,
+        "issue": "prev_close and prev_high have correlation 0.9997 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_close",
+        "feature2": "prev_low",
+        "correlation": 0.9996160334308829,
+        "issue": "prev_close and prev_low have correlation 0.9996 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_close",
+        "feature2": "sma_20",
+        "correlation": 0.9962741679967215,
+        "issue": "prev_close and sma_20 have correlation 0.9963 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_close",
+        "feature2": "close_lag_2",
+        "correlation": 0.999345780261718,
+        "issue": "prev_close and close_lag_2 have correlation 0.9993 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_close",
+        "feature2": "close_lag_3",
+        "correlation": 0.9987514773844217,
+        "issue": "prev_close and close_lag_3 have correlation 0.9988 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_close",
+        "feature2": "close_lag_5",
+        "correlation": 0.9975581242130792,
+        "issue": "prev_close and close_lag_5 have correlation 0.9976 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_close",
+        "feature2": "close_lag_10",
+        "correlation": 0.9945631209425191,
+        "issue": "prev_close and close_lag_10 have correlation 0.9946 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_open",
+        "feature2": "prev_high",
+        "correlation": 0.99967061218002,
+        "issue": "prev_open and prev_high have correlation 0.9997 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_open",
+        "feature2": "prev_low",
+        "correlation": 0.999484507873975,
+        "issue": "prev_open and prev_low have correlation 0.9995 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_open",
+        "feature2": "sma_20",
+        "correlation": 0.99681032943558,
+        "issue": "prev_open and sma_20 have correlation 0.9968 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_open",
+        "feature2": "sma_50",
+        "correlation": 0.9902598430357085,
+        "issue": "prev_open and sma_50 have correlation 0.9903 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_open",
+        "feature2": "close_lag_2",
+        "correlation": 0.9999999890717743,
+        "issue": "prev_open and close_lag_2 have correlation 1.0000 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_open",
+        "feature2": "close_lag_3",
+        "correlation": 0.9993454489418903,
+        "issue": "prev_open and close_lag_3 have correlation 0.9993 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_open",
+        "feature2": "close_lag_5",
+        "correlation": 0.998157499602012,
+        "issue": "prev_open and close_lag_5 have correlation 0.9982 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_open",
+        "feature2": "close_lag_10",
+        "correlation": 0.9950999814723606,
+        "issue": "prev_open and close_lag_10 have correlation 0.9951 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_high",
+        "feature2": "prev_low",
+        "correlation": 0.9993277486945841,
+        "issue": "prev_high and prev_low have correlation 0.9993 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_high",
+        "feature2": "sma_20",
+        "correlation": 0.9966291493486084,
+        "issue": "prev_high and sma_20 have correlation 0.9966 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_high",
+        "feature2": "sma_50",
+        "correlation": 0.9900055180007888,
+        "issue": "prev_high and sma_50 have correlation 0.9900 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_high",
+        "feature2": "close_lag_2",
+        "correlation": 0.9996706437234555,
+        "issue": "prev_high and close_lag_2 have correlation 0.9997 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_high",
+        "feature2": "close_lag_3",
+        "correlation": 0.9990965057165875,
+        "issue": "prev_high and close_lag_3 have correlation 0.9991 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_high",
+        "feature2": "close_lag_5",
+        "correlation": 0.9979278534343676,
+        "issue": "prev_high and close_lag_5 have correlation 0.9979 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_high",
+        "feature2": "close_lag_10",
+        "correlation": 0.9949207068144044,
+        "issue": "prev_high and close_lag_10 have correlation 0.9949 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_low",
+        "feature2": "sma_20",
+        "correlation": 0.9962090195558584,
+        "issue": "prev_low and sma_20 have correlation 0.9962 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_low",
+        "feature2": "close_lag_2",
+        "correlation": 0.9994845425692537,
+        "issue": "prev_low and close_lag_2 have correlation 0.9995 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_low",
+        "feature2": "close_lag_3",
+        "correlation": 0.9987809716748385,
+        "issue": "prev_low and close_lag_3 have correlation 0.9988 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_low",
+        "feature2": "close_lag_5",
+        "correlation": 0.9974967780598372,
+        "issue": "prev_low and close_lag_5 have correlation 0.9975 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "prev_low",
+        "feature2": "close_lag_10",
+        "correlation": 0.994417693027086,
+        "issue": "prev_low and close_lag_10 have correlation 0.9944 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "sma_20",
+        "feature2": "sma_50",
+        "correlation": 0.9962210741541464,
+        "issue": "sma_20 and sma_50 have correlation 0.9962 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "sma_20",
+        "feature2": "close_lag_2",
+        "correlation": 0.9968106560737928,
+        "issue": "sma_20 and close_lag_2 have correlation 0.9968 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "sma_20",
+        "feature2": "close_lag_3",
+        "correlation": 0.9972891773158771,
+        "issue": "sma_20 and close_lag_3 have correlation 0.9973 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "sma_20",
+        "feature2": "close_lag_5",
+        "correlation": 0.9980688781645867,
+        "issue": "sma_20 and close_lag_5 have correlation 0.9981 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "sma_20",
+        "feature2": "close_lag_10",
+        "correlation": 0.9989607668923217,
+        "issue": "sma_20 and close_lag_10 have correlation 0.9990 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "sma_50",
+        "feature2": "close_lag_2",
+        "correlation": 0.9902601456432241,
+        "issue": "sma_50 and close_lag_2 have correlation 0.9903 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "sma_50",
+        "feature2": "close_lag_3",
+        "correlation": 0.9908685626770214,
+        "issue": "sma_50 and close_lag_3 have correlation 0.9909 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "sma_50",
+        "feature2": "close_lag_5",
+        "correlation": 0.9920166448010745,
+        "issue": "sma_50 and close_lag_5 have correlation 0.9920 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "sma_50",
+        "feature2": "close_lag_10",
+        "correlation": 0.9944545356205671,
+        "issue": "sma_50 and close_lag_10 have correlation 0.9945 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "close_lag_2",
+        "feature2": "close_lag_3",
+        "correlation": 0.9993456874649166,
+        "issue": "close_lag_2 and close_lag_3 have correlation 0.9993 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "close_lag_2",
+        "feature2": "close_lag_5",
+        "correlation": 0.9981578269544985,
+        "issue": "close_lag_2 and close_lag_5 have correlation 0.9982 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "close_lag_2",
+        "feature2": "close_lag_10",
+        "correlation": 0.9951003313726037,
+        "issue": "close_lag_2 and close_lag_10 have correlation 0.9951 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "close_lag_3",
+        "feature2": "close_lag_5",
+        "correlation": 0.9987489017334471,
+        "issue": "close_lag_3 and close_lag_5 have correlation 0.9987 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "close_lag_3",
+        "feature2": "close_lag_10",
+        "correlation": 0.9956938277585762,
+        "issue": "close_lag_3 and close_lag_10 have correlation 0.9957 (redundant)",
+        "severity": "HIGH"
+      },
+      {
+        "type": "PERFECT_CORRELATION",
+        "feature1": "close_lag_5",
+        "feature2": "close_lag_10",
+        "correlation": 0.9969203240265188,
+        "issue": "close_lag_5 and close_lag_10 have correlation 0.9969 (redundant)",
+        "severity": "HIGH"
+      }
+    ]
+  },
+  "time_leakage": {
+    "issues": []
+  },
+  "overall_status": "PASS - No Data Leakage Detected",
+  "critical_issues": [],
+  "recommendations": [
+    "Remove 43 redundant features with perfect correlations"
+  ]
+}

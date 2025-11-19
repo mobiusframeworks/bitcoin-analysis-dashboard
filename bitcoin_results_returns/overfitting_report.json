@@ -1,0 +1,47 @@
+{
+  "data_leakage": {
+    "has_leakage": false,
+    "issues": [],
+    "warnings": [
+      "High correlation between 'sma_50' and 'close': 0.9747"
+    ]
+  },
+  "lookahead_bias": {
+    "has_lookahead": false,
+    "issues": [],
+    "warnings": [
+      "No time column available - cannot check for look-ahead bias"
+    ]
+  },
+  "overfitting": {
+    "is_overfitting": true,
+    "severity": "severe",
+    "train_val_gap": 1.0,
+    "train_test_gap": 1.0,
+    "val_test_gap": 0.0,
+    "issues": [
+      "Train-Val gap (100.00%) exceeds threshold (15.00%)",
+      "Train-Test gap (100.00%) exceeds threshold (15.00%)"
+    ]
+  },
+  "feature_quality": {
+    "duplicate_features": [],
+    "constant_features": [],
+    "highly_correlated_pairs": [
+      [
+        "sma_50",
+        "close",
+        0.9747177444240541
+      ]
+    ],
+    "warnings": []
+  },
+  "overall_status": "FAIL - Severe Overfitting",
+  "recommendations": [
+    "Increase regularization",
+    "Reduce model complexity",
+    "Add more training data",
+    "Use feature selection to remove redundant features",
+    "Remove or combine highly correlated features"
+  ]
+}

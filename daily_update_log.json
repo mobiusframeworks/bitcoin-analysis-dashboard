@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-11-19T12:09:32.641794",
+  "btc_ohlc_records": 3977,
+  "latest_btc_price": 88546.77,
+  "latest_date": "2025-11-19T01:00:00",
+  "fred_series_fetched": [
+    "M2SL",
+    "FEDFUNDS",
+    "DGS10",
+    "CPIAUCSL",
+    "WALCL",
+    "DEXUSEU",
+    "DCOILWTICO"
+  ],
+  "comprehensive_dataset_created": true,
+  "comprehensive_records": 3977
+}

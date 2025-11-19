@@ -1,0 +1,79 @@
+{
+  "initial_features": 31,
+  "steps": [
+    {
+      "step": "Remove constant features",
+      "removed": 3,
+      "remaining": 28
+    },
+    {
+      "step": "Remove highly correlated features",
+      "threshold": 0.95,
+      "removed": 13,
+      "remaining": 15,
+      "removed_features": [
+        "sma_200",
+        "CPIAUCSL",
+        "Net_Liquidity",
+        "close_lag_2",
+        "close_lag_5",
+        "prev_low",
+        "prev_high",
+        "close_lag_3",
+        "close_lag_10",
+        "M2SL"
+      ]
+    },
+    {
+      "step": "Remove cross-category redundancy (FRED vs Technical)",
+      "threshold": 0.9,
+      "removed": 0,
+      "remaining": 15,
+      "conflicts": 0,
+      "conflict_details": []
+    }
+  ],
+  "final_features": 15,
+  "selected_features": [
+    "prev_close",
+    "prev_volume",
+    "return_20d",
+    "volatility_5d",
+    "volatility_20d",
+    "price_sma50_ratio",
+    "price_sma200_ratio",
+    "volume_ratio",
+    "M2_Growth_Rate",
+    "WALCL",
+    "FEDFUNDS",
+    "CPI_YoY",
+    "UNRATE",
+    "GFDEBTN",
+    "DGS10"
+  ],
+  "feature_categories": {
+    "FRED": [
+      "M2_Growth_Rate",
+      "WALCL",
+      "FEDFUNDS",
+      "CPI_YoY",
+      "UNRATE",
+      "GFDEBTN",
+      "DGS10"
+    ],
+    "Technical": [
+      "return_20d",
+      "volatility_5d",
+      "volatility_20d",
+      "price_sma50_ratio",
+      "price_sma200_ratio",
+      "volume_ratio"
+    ],
+    "Halving": [],
+    "OnChain": [],
+    "Other": [
+      "prev_close",
+      "prev_volume"
+    ]
+  }
+}

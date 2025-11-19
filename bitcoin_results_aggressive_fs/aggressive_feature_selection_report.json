@@ -1,0 +1,213 @@
+{
+  "initial_features": 31,
+  "steps": [
+    {
+      "step": "VIF-based removal",
+      "threshold": 5.0,
+      "removed": 24,
+      "remaining": 7,
+      "removed_features": [
+        "prev_close",
+        "prev_open",
+        "prev_high",
+        "prev_low",
+        "return_20d",
+        "sma_20",
+        "sma_50",
+        "sma_200",
+        "price_sma20_ratio",
+        "price_sma50_ratio",
+        "price_sma200_ratio",
+        "close_lag_2",
+        "close_lag_3",
+        "close_lag_5",
+        "close_lag_10",
+        "Net_Liquidity",
+        "M2SL",
+        "M2_Growth_Rate",
+        "WALCL",
+        "FEDFUNDS",
+        "CPIAUCSL",
+        "CPI_YoY",
+        "GFDEBTN",
+        "DGS10"
+      ],
+      "high_vif_features": [
+        "close_lag_2",
+        "prev_open",
+        "prev_high",
+        "prev_close",
+        "prev_low",
+        "sma_20",
+        "close_lag_3",
+        "close_lag_5",
+        "close_lag_10",
+        "sma_50",
+        "GFDEBTN",
+        "CPIAUCSL",
+        "M2SL",
+        "WALCL",
+        "Net_Liquidity",
+        "sma_200",
+        "FEDFUNDS",
+        "DGS10",
+        "M2_Growth_Rate",
+        "price_sma20_ratio",
+        "price_sma50_ratio",
+        "CPI_YoY",
+        "return_20d",
+        "price_sma200_ratio"
+      ]
+    },
+    {
+      "step": "Correlation-based removal",
+      "threshold": 0.85,
+      "removed": 0,
+      "remaining": 7,
+      "removed_features": [],
+      "removal_log": []
+    },
+    {
+      "step": "Linear combination removal",
+      "removed": 0,
+      "remaining": 7,
+      "removed_features": []
+    }
+  ],
+  "final_features": 7,
+  "selected_features": [
+    "UNRATE",
+    "volatility_20d",
+    "return_5d",
+    "volatility_5d",
+    "prev_volume",
+    "return_1d",
+    "volume_ratio"
+  ],
+  "vif_scores": [
+    {
+      "feature": "close_lag_2",
+      "vif": 46088307.5559768
+    },
+    {
+      "feature": "prev_open",
+      "vif": 46061217.172678836
+    },
+    {
+      "feature": "prev_high",
+      "vif": 6243.251538653018
+    },
+    {
+      "feature": "prev_close",
+      "vif": 5117.629053649848
+    },
+    {
+      "feature": "prev_low",
+      "vif": 3518.2323718203133
+    },
+    {
+      "feature": "sma_20",
+      "vif": 2369.326240610155
+    },
+    {
+      "feature": "close_lag_3",
+      "vif": 1147.3445005295166
+    },
+    {
+      "feature": "close_lag_5",
+      "vif": 746.0893426020256
+    },
+    {
+      "feature": "close_lag_10",
+      "vif": 591.6014060069446
+    },
+    {
+      "feature": "sma_50",
+      "vif": 451.5833969993272
+    },
+    {
+      "feature": "GFDEBTN",
+      "vif": 384.685880414878
+    },
+    {
+      "feature": "CPIAUCSL",
+      "vif": 275.0711762097123
+    },
+    {
+      "feature": "M2SL",
+      "vif": 189.2470716651376
+    },
+    {
+      "feature": "WALCL",
+      "vif": 180.74147425818978
+    },
+    {
+      "feature": "Net_Liquidity",
+      "vif": 104.40439685137862
+    },
+    {
+      "feature": "sma_200",
+      "vif": 77.9714320767147
+    },
+    {
+      "feature": "FEDFUNDS",
+      "vif": 57.26367046975367
+    },
+    {
+      "feature": "DGS10",
+      "vif": 18.98620069618783
+    },
+    {
+      "feature": "M2_Growth_Rate",
+      "vif": 15.957095036438522
+    },
+    {
+      "feature": "price_sma20_ratio",
+      "vif": 13.686443032658081
+    },
+    {
+      "feature": "price_sma50_ratio",
+      "vif": 13.650869540009701
+    },
+    {
+      "feature": "CPI_YoY",
+      "vif": 11.888351592420168
+    },
+    {
+      "feature": "return_20d",
+      "vif": 8.553039133514764
+    },
+    {
+      "feature": "price_sma200_ratio",
+      "vif": 5.228860624079855
+    },
+    {
+      "feature": "UNRATE",
+      "vif": 4.6179150711966095
+    },
+    {
+      "feature": "volatility_20d",
+      "vif": 4.026629675292222
+    },
+    {
+      "feature": "return_5d",
+      "vif": 3.9589181366448054
+    },
+    {
+      "feature": "volatility_5d",
+      "vif": 3.5112529926823166
+    },
+    {
+      "feature": "prev_volume",
+      "vif": 2.668900406548399
+    },
+    {
+      "feature": "return_1d",
+      "vif": 2.222555241297984
+    },
+    {
+      "feature": "volume_ratio",
+      "vif": 1.6196271002808271
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "current_date": "2025-11-16 01:00:00",
+  "current_price": 95454.0,
+  "predicted_price": 95009.29236341653,
+  "predicted_change": -444.7076365834655,
+  "predicted_change_pct": -0.46588685291707577,
+  "direction": "DOWN",
+  "confidence_intervals": {
+    "68_low": 94239.73028716932,
+    "68_high": 95778.85443966374,
+    "95_low": 93470.16821092211,
+    "95_high": 96548.41651591095
+  },
+  "error_std": 769.5620762472134,
+  "model": "Ridge",
+  "prediction_date": "2025-11-15T21:16:06.945710"
+}

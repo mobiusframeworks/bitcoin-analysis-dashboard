@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# Environment variables
+.env
+.env.local
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Vercel
+.vercel
+
+# Logs
+*.log
+/tmp/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Reports (keep only essential ones for GitHub)
+reports/*.pdf
+reports/Bitcoin_Dashboard_*.html
+reports/Bitcoin_Consolidated_Dashboard.html
+reports/Bitcoin_Analysis_Report_*.pdf
+
+# Large data files (optional - comment out if you want to keep in git)
+# datasets/*.csv
+
+# Temporary files
+*.tmp
+*.bak
+*~

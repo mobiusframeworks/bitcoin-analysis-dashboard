@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "name": "bitcoin-analysis-dashboard",
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.json",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index.html"
+    }
+  ]
+}

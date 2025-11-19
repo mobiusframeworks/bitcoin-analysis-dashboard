@@ -1,0 +1,102 @@
+{
+  "task_type": "REGRESSION",
+  "is_timeseries": true,
+  "optimal_cv_folds": 10,
+  "cv_fold_scores": {
+    "3": {
+      "mean": -119284676.19017208,
+      "std": 143921860.8114996
+    },
+    "5": {
+      "mean": -106196718.22774862,
+      "std": 189138354.72223917
+    },
+    "7": {
+      "mean": -99216339.63252307,
+      "std": 224654773.53553015
+    },
+    "10": {
+      "mean": -49294757.83001772,
+      "std": 132993634.67281637
+    }
+  },
+  "model_results": {
+    "Ridge": {
+      "mean_cv_score": -501853.11091937294,
+      "std_cv_score": 1178987.3139338987,
+      "best_params": {
+        "model__alpha": 0.01
+      }
+    },
+    "RandomForest": {
+      "mean_cv_score": -79651425.11764838,
+      "std_cv_score": 219958339.77911544,
+      "best_params": {
+        "model__max_depth": null,
+        "model__max_features": "sqrt",
+        "model__n_estimators": 100
+      }
+    }
+  },
+  "best_model": "Ridge",
+  "best_params": {
+    "model__alpha": 0.01
+  },
+  "overfitting_analysis": {
+    "before_tuning": {
+      "train_score": 0.9970663477347642,
+      "val_score": 0.9922161084112417,
+      "gap": 0.004888289236997749,
+      "is_overfitting": false
+    },
+    "after_tuning": {
+      "train_val_score": 0.9975046841346235,
+      "test_score": 0.9949308651299,
+      "gap": 0.0025869325145394684,
+      "is_overfitting": false
+    }
+  },
+  "test_metrics": {
+    "score": 0.9949308651299,
+    "rmse": 1903.6248327248975,
+    "mae": 1346.7483117142835
+  },
+  "overfitting_status": "FAILED",
+  "overfitting_report": {
+    "data_leakage": {
+      "has_leakage": false,
+      "issues": [],
+      "warnings": []
+    },
+    "lookahead_bias": {
+      "has_lookahead": false,
+      "issues": [],
+      "warnings": [
+        "No time column available - cannot check for look-ahead bias"
+      ]
+    },
+    "overfitting": {
+      "is_overfitting": true,
+      "severity": "severe",
+      "train_val_gap": 0.0025869325145394684,
+      "train_test_gap": 0.0025869325145394684,
+      "val_test_gap": 0.0,
+      "issues": [
+        "Suspiciously high scores (Train: 0.9975, Val: 0.9949) - likely data leakage or trivial prediction task"
+      ]
+    },
+    "feature_quality": {
+      "duplicate_features": [],
+      "constant_features": [],
+      "highly_correlated_pairs": [],
+      "warnings": []
+    },
+    "overall_status": "FAIL - Severe Overfitting",
+    "recommendations": [
+      "Increase regularization",
+      "Reduce model complexity",
+      "Add more training data",
+      "Use feature selection to remove redundant features"
+    ]
+  }
+}

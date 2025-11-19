@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin ML Reports - Index</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .category {
+            margin-bottom: 40px;
+        }
+
+        .category-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .report-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .report-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .report-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+
+        .report-card.featured {
+            border: 3px solid #f39c12;
+            background: #fffbf0;
+        }
+
+        .report-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .report-code {
+            background: #3498db;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .featured-badge {
+            background: #f39c12;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75em;
+            font-weight: bold;
+        }
+
+        .report-size {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+
+        .report-description {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .report-description ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        .report-description li {
+            margin-bottom: 5px;
+        }
+
+        .report-status {
+            background: #e8f5e9;
+            border-left: 4px solid #2ecc71;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .report-status.warning {
+            background: #fff3cd;
+            border-left-color: #f39c12;
+        }
+
+        .view-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .view-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .quick-nav {
+            background: #e3f2fd;
+            border-left: 5px solid #2196f3;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .quick-nav h3 {
+            color: #1976d2;
+            margin-bottom: 15px;
+        }
+
+        .quick-nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .quick-nav-link {
+            background: #2196f3;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: all 0.2s;
+        }
+
+        .quick-nav-link:hover {
+            background: #1976d2;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e9ecef;
+            text-align: center;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Bitcoin ML Reports Library</h1>
+        <p class="subtitle">Comprehensive Machine Learning Analysis & Methodology Documentation</p>
+
+        <!-- Quick Navigation -->
+        <div class="quick-nav">
+            <h3>🎯 Quick Navigation</h3>
+            <div class="quick-nav-links">
+                <a href="#category-a" class="quick-nav-link">Comprehensive Analysis</a>
+                <a href="#category-b" class="quick-nav-link">Feature Selection</a>
+                <a href="#category-c" class="quick-nav-link">Current Reports</a>
+                <a href="#category-d" class="quick-nav-link">New Reports</a>
+                <a href="Bitcoin_Consolidated_Dashboard.html" class="quick-nav-link" style="background: #f39c12;">📈 Live Dashboard</a>
+            </div>
+        </div>
+
+        <!-- Category A: Comprehensive ML Analysis -->
+        <div class="category" id="category-a">
+            <div class="category-header">📚 Category A: Comprehensive ML Analysis Reports</div>
+
+            <div class="report-grid">
+                <div class="report-card featured">
+                    <div class="report-title">
+                        <span class="report-code">A1</span>
+                        <span>Bitcoin Comprehensive Analysis</span>
+                        <span class="featured-badge">⭐ MOST DETAILED</span>
+                    </div>
+                    <div class="report-size">Size: 1.3 MB | PDF</div>
+                    <div class="report-description">
+                        <strong>Complete ML Pipeline Documentation:</strong>
+                        <ul>
+                            <li>Ridge Regression methodology (R² = 0.9992)</li>
+                            <li>TimeSeriesSplit cross-validation</li>
+                            <li>GridSearchCV hyperparameter tuning</li>
+                            <li>Performance: RMSE = $774, MAE = $555</li>
+                            <li>Learning curves & validation curves</li>
+                        </ul>
+                    </div>
+                    <div class="report-status warning">
+                        ⚠️ Contains data leakage (same-day OHLC → same-day close)
+                    </div>
+                    <a href="../archive/old_reports/Bitcoin_Comprehensive_Analysis_Report.pdf" class="view-button" target="_blank">View Report (A1)</a>
+                </div>
+
+                <div class="report-card featured">
+                    <div class="report-title">
+                        <span class="report-code">A2</span>
+                        <span>Enhanced Comprehensive Analysis</span>
+                    </div>
+                    <div class="report-size">Size: 538 KB | PDF</div>
+                    <div class="report-description">
+                        <strong>Enhanced Visualizations Version:</strong>
+                        <ul>
+                            <li>Executive summary for non-technical users</li>
+                            <li>All charts and visualizations</li>
+                            <li>Score breakdowns (Correlation, VIF, R²)</li>
+                            <li>Step-by-step feature selection</li>
+                            <li>Process flow diagrams</li>
+                        </ul>
+                    </div>
+                    <div class="report-status">
+                        ✅ Best visualizations and explanations
+                    </div>
+                    <a href="../archive/old_reports/Bitcoin_Comprehensive_Analysis_Report_Enhanced.pdf" class="view-button" target="_blank">View Report (A2)</a>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-title">
+                        <span class="report-code">A3</span>
+                        <span>Fixed Analysis Report</span>
+                    </div>
+                    <div class="report-size">Size: 48 KB | PDF</div>
+                    <div class="report-description">
+                        <strong>First Fix Attempt:</strong>
+                        <ul>
+                            <li>Changed to returns prediction</li>
+                            <li>Stronger regularization</li>
+                            <li>Overfitting checks included</li>
+                        </ul>
+                    </div>
+                    <div class="report-status">
+                        ✅ First attempt at fixing data leakage
+                    </div>
+                    <a href="../archive/old_reports/Bitcoin_Comprehensive_Analysis_Report_Fixed.pdf" class="view-button" target="_blank">View Report (A3)</a>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-title">
+                        <span class="report-code">A4</span>
+                        <span>Analysis With Leakage Checks</span>
+                    </div>
+                    <div class="report-size">Size: 40 KB | PDF</div>
+                    <div class="report-description">
+                        <strong>Leakage Detection Methodology:</strong>
+                        <ul>
+                            <li>Data leakage detection system</li>
+                            <li>Look-ahead bias checks</li>
+                            <li>Overfitting severity assessment</li>
+                        </ul>
+                    </div>
+                    <div class="report-status">
+                        ✅ Includes leakage detection methodology
+                    </div>
+                    <a href="../archive/old_reports/Bitcoin_Comprehensive_Analysis_Report_With_Leakage_Checks.pdf" class="view-button" target="_blank">View Report (A4)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category B: Feature Selection -->
+        <div class="category" id="category-b">
+            <div class="category-header">🔍 Category B: Feature Selection Reports</div>
+
+            <div class="report-grid">
+                <div class="report-card featured">
+                    <div class="report-title">
+                        <span class="report-code">B1</span>
+                        <span>Redundancy Elimination Report</span>
+                        <span class="featured-badge">⭐ FRED vs TECHNICAL</span>
+                    </div>
+                    <div class="report-size">Size: 48 KB | PDF</div>
+                    <div class="report-description">
+                        <strong>FRED vs Technical Feature Filtering:</strong>
+                        <ul>
+                            <li>Cross-category redundancy removal</li>
+                            <li>Correlation-based elimination (>90-95%)</li>
+                            <li>Feature reduction: 31 → 10 (68% reduction)</li>
+                            <li>Result: 7 FRED + 3 Technical features</li>
+                        </ul>
+                    </div>
+                    <div class="report-status">
+                        ✅ FRED & Technical provide different information (no conflicts)
+                    </div>
+                    <a href="../archive/old_reports/Feature_Selection_Redundancy_Elimination_Report.pdf" class="view-button" target="_blank">View Report (B1)</a>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-title">
+                        <span class="report-code">B2</span>
+                        <span>Feature Selection With Leakage Checks</span>
+                    </div>
+                    <div class="report-size">Size: 41 KB | PDF</div>
+                    <div class="report-description">
+                        <strong>Rigorous Feature Selection:</strong>
+                        <ul>
+                            <li>Feature selection + leakage detection</li>
+                            <li>Mutual information ranking</li>
+                            <li>Constant/low variance removal</li>
+                        </ul>
+                    </div>
+                    <div class="report-status">
+                        ✅ Most rigorous feature selection methodology
+                    </div>
+                    <a href="../archive/old_reports/Feature_Selection_Report_With_Leakage_Checks.pdf" class="view-button" target="_blank">View Report (B2)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category C: Current Reports -->
+        <div class="category" id="category-c">
+            <div class="category-header">📈 Category C: Current Bitcoin Analysis (Latest)</div>
+
+            <div class="report-grid">
+                <div class="report-card featured">
+                    <div class="report-title">
+                        <span class="report-code">C1</span>
+                        <span>Bitcoin Analysis Report (Nov 18, 10:17 PM)</span>
+                        <span class="featured-badge">⭐ MOST RECENT</span>
+                    </div>
+                    <div class="report-size">Size: 86 KB | PDF</div>
+                    <div class="report-description">
+                        <strong>Transparent Reporting with Confidence Scores:</strong>
+                        <ul>
+                            <li>Peak: $124,658.54 (65% confidence)</li>
+                            <li>Bear market scenarios (best/avg/worst)</li>
+                            <li>Halving cycle analysis</li>
+                            <li>Phase: DISTRIBUTION (75% confidence)</li>
+                            <li>Qualified language throughout</li>
+                        </ul>
+                    </div>
+                    <div class="report-status">
+                        ✅ Latest production report with transparency updates
+                    </div>
+                    <a href="Bitcoin_Analysis_Report_20251118_2217.pdf" class="view-button" target="_blank">View Report (C1)</a>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-title">
+                        <span class="report-code">C2</span>
+                        <span>Bitcoin Analysis Report (Nov 18, 10:00 PM)</span>
+                    </div>
+                    <div class="report-size">Size: 77 KB | PDF</div>
+                    <div class="report-description">
+                        Earlier version from same day, superseded by C1.
+                    </div>
+                    <div class="report-status warning">
+                        ⚠️ Superseded by C1 (use C1 instead)
+                    </div>
+                    <a href="../archive/old_reports/Bitcoin_Analysis_Report_20251118_2200.pdf" class="view-button" target="_blank">View Report (C2)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category D: New Reports -->
+        <div class="category" id="category-d">
+            <div class="category-header">🆕 Category D: New ML Analysis (Just Generated)</div>
+
+            <div class="report-grid">
+                <div class="report-card featured">
+                    <div class="report-title">
+                        <span class="report-code">D1</span>
+                        <span>ML Feature Importance Analysis</span>
+                        <span class="featured-badge">⭐ JUST CREATED</span>
+                    </div>
+                    <div class="report-size">HTML Report</div>
+                    <div class="report-description">
+                        <strong>Comprehensive Feature Analysis:</strong>
+                        <ul>
+                            <li>8 detailed charts with explanations</li>
+                            <li>Halving sine/cosine transformations explained</li>
+                            <li>FRED economic indicators integration</li>
+                            <li>Statistical significance (t-stats, p-values)</li>
+                            <li>Model comparison (Lasso/Ridge/Random Forest)</li>
+                            <li>Trading strategy application</li>
+                            <li>Abstract + Conclusions</li>
+                        </ul>
+                    </div>
+                    <div class="report-status warning">
+                        ⚠️ Result: Negative R² (-0.0289) - 7-day returns very difficult to predict
+                    </div>
+                    <a href="ML_Analysis_Report.html" class="view-button" target="_blank">View Report (D1)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Dashboard -->
+        <div class="category">
+            <div class="category-header">📊 Live Interactive Dashboard</div>
+
+            <div class="report-grid">
+                <div class="report-card featured">
+                    <div class="report-title">
+                        <span>Bitcoin Consolidated Dashboard</span>
+                        <span class="featured-badge">⭐ INTERACTIVE</span>
+                    </div>
+                    <div class="report-size">HTML Dashboard</div>
+                    <div class="report-description">
+                        <strong>All-in-One Interactive Dashboard:</strong>
+                        <ul>
+                            <li>Live price from Coinbase API</li>
+                            <li>6 tabbed sections (Overview, ML, FRED, Scenarios, Methodology, Charts)</li>
+                            <li>All reports consolidated in one place</li>
+                            <li>Interactive navigation</li>
+                        </ul>
+                    </div>
+                    <div class="report-status">
+                        ✅ Best way to view all analysis together
+                    </div>
+                    <a href="Bitcoin_Consolidated_Dashboard.html" class="view-button" target="_blank">Open Dashboard</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Total Reports:</strong> 10 comprehensive reports + 1 interactive dashboard</p>
+            <p style="margin-top: 10px;">Generated: November 18, 2025</p>
+            <p style="margin-top: 5px; font-size: 0.9em;">
+                Server running from: <code>ml_pipeline/reports/</code><br>
+                All PDF links have been verified and updated
+            </p>
+        </div>
+    </div>
+</body>
+</html>

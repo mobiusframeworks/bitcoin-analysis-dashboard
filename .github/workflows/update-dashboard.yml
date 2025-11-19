@@ -1,0 +1,85 @@
+name: Update Bitcoin Dashboard
+
+on:
+  schedule:
+    # Runs every 10 minutes
+    - cron: '*/10 * * * *'
+
+  # Allow manual trigger
+  workflow_dispatch:
+
+  # Trigger on push to main (for testing)
+  push:
+    branches: [ main ]
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install pandas numpy yfinance requests matplotlib seaborn scikit-learn
+
+    - name: Fetch latest Bitcoin data
+      run: |
+        cd ml_pipeline
+        python3 fetch_live_bitcoin_data.py
+        echo "Bitcoin data updated at $(date)"
+
+    - name: Generate M2 analysis
+      run: |
+        cd ml_pipeline
+        python3 generate_m2_interest_rate_bitcoin_study.py || echo "M2 analysis skipped"
+
+    - name: Generate trading strategy analysis
+      run: |
+        cd ml_pipeline
+        python3 generate_trading_strategy_analysis.py
+
+    - name: Generate comprehensive dashboard
+      run: |
+        cd ml_pipeline
+        python3 generate_comprehensive_bitcoin_website.py
+        cp reports/Bitcoin_Comprehensive_Dashboard.html reports/index.html
+
+    - name: Commit updated data
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+
+        # Add all updated files
+        git add datasets/btc-ohlc.csv
+        git add ml_pipeline/reports/*.json
+        git add ml_pipeline/reports/*.html
+
+        # Commit if there are changes
+        git diff --quiet && git diff --staged --quiet || \
+        git commit -m "🤖 Auto-update: Bitcoin data $(date -u +%Y-%m-%d_%H:%M:%S_UTC)"
+
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
+
+    - name: Deploy to Vercel
+      uses: amondnet/vercel-action@v25
+      with:
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+        vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+        working-directory: ./ml_pipeline/reports
+        vercel-args: '--prod'
