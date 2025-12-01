@@ -16,9 +16,9 @@ import io
 import base64
 
 # Paths
-BASE_DIR = Path("/Users/alexhorton/quant connect dev environment")
-DATA_FILE = BASE_DIR / "datasets" / "btc-ohlc.csv"
-OUTPUT_DIR = BASE_DIR / "ml_pipeline" / "reports"
+BASE_DIR = Path(__file__).parent
+DATA_FILE = BASE_DIR / "data" / "bitcoin_live.csv"
+OUTPUT_DIR = BASE_DIR / "reports"
 M2_RESULTS = OUTPUT_DIR / "m2_interest_rate_study_results.json"
 TRADING_STRATEGY_RESULTS = OUTPUT_DIR / "trading_strategy_results.json"
 
@@ -35,8 +35,13 @@ def load_bitcoin_data():
     """Load and prepare Bitcoin OHLC data with current price"""
     print("📊 Loading Bitcoin data...")
     df = pd.read_csv(DATA_FILE)
-    df.columns = ['timestamp', 'unix_time', 'open', 'high', 'low', 'close', 'volume']
-    df['timestamp'] = pd.to_datetime(df['timestamp'])
+
+    # Standardize column names (handle both formats)
+    if 'Date' in df.columns:
+        df = df.rename(columns={'Date': 'timestamp', 'Open': 'open', 'High': 'high',
+                                'Low': 'low', 'Close': 'close', 'Volume': 'volume'})
+
+    df['timestamp'] = pd.to_datetime(df['timestamp'], format='mixed', errors='coerce')
     df = df.sort_values('timestamp').reset_index(drop=True)
 
     # Get current price and key levels

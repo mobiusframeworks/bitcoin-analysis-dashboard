@@ -1,0 +1,17 @@
+i dont see the othre dashboards for each of the tabs. each tab had its own special sercion, and you find these, and pull them into the tabs for me. in partuclar focus on the std deviation densitiy dsitribtuions around the moving averages for the algo trading strategy
+also focus on the m2 overlay over the bitcoin chart for the m2 section. 
+for the key levels focus on the hyper liquid to pull in the bitcoin liquidation chart. https://github.com/hyperliquid-dex/hyperliquid-python-sdk
+log into to a vpn and get a hyperliquid api key
+make sure that all of the tabs are displaying on the site, and are being correctly populated with thier respective sections. 
+each of the sections should be strucutred according the logical framework for the algo tradins strategy, giving tips and recommendations for how to trade the strategy, and given the distitbitosn, receommendations, and good stops to abide by for the strategy. 
+────────────────────────────────────────────────────────────────────────────────────────────
+> i wi would like the user to be able to type into the ai sidebard. instead of the chat
+  onnly 
+
+  make sure that all of information is displaying well, and check that it sdoesnt replead itself. uses straic real bitcoin logos through the site where it matter.s. 
+  call the project 
+
+-organiz this enire project logically into one file strucute, combining the anlyusis, unified fdashboard, and teh bitcoin dashboard into one archetecuter, with differnet sections. check ti for overlapping sections. make it flow, and populate the site cleanly, prefesionally, and deeply. deeply peenrtrating the users mind, intellect, and curiousity. 
+-add in the quant connect lean enginer, and backtest the stratgy on the data. use monte carlo permuations to determine the signifnace
+--upload the old/ this version to githbub under a new branch. then go through the todo list one by one and make the appriate changes, and make a new github repo, and push to vercel. call this new project. astral projection matrix
+--upload this into github, and push to a new vercel project. 
